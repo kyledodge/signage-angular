@@ -56,7 +56,6 @@ angular.module('app')
         this.getUserIndexByID = function(userID) {
             for(var i=0; i < this.users.length; i++) {
                 if(this.users[i].id == Number(userID)) {
-                    console.log('found ' + this.users[i].id)
                     return i
                 }
             }
@@ -69,9 +68,7 @@ angular.module('app')
         this.updateUser = function(user) {
             var userIndex = this.getUserIndexByID(user.id);
 
-            if(userIndex && (typeof userIndex == 'number' && !isNaN(userIndex))) {
-                this.users[userIndex] = user;
-            }
+            this.users[userIndex] = user;
         },
 
         /***
@@ -81,10 +78,9 @@ angular.module('app')
         this.deleteUser = function(user) {
             var userIndex = this.getUserIndexByID(user.id);
 
-            if(userIndex && (typeof userIndex == 'number' && !isNaN(userIndex))) {
-                this.users.splice(userIndex, 1);
-            }
+            this.users.splice(userIndex, 1);
         },
+
         /***
          * Inserts a new user
          * @param {user} user - user object to be inserted
