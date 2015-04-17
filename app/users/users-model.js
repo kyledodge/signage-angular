@@ -1,6 +1,7 @@
-angular.module('app')
+angular.module('app.users.model', [
 
-    .service("usersModel", function() {
+])
+    .service("UsersModel", function() {
         /***
          * list array of users
          */
@@ -26,7 +27,6 @@ angular.module('app')
                 role: "Administrator",
                 lastLogin: "03/02/2015"
             }
-
         ];
 
         /***

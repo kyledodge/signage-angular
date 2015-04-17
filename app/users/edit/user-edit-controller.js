@@ -1,5 +1,17 @@
-angular.module('app')
-    .controller('userEditController', [
+angular.module('app.users.edit', [
+    'app.users.model',
+    'ui.router'
+])
+    .config(function($stateProvider) {
+        $stateProvider
+            .state('userEdit', {
+                url: '/users/:userID/edit',
+                templateUrl: 'app/users/edit/user-edit.template.html',
+                controller: 'UserEditController'
+            })
+    })
+
+    .controller('UserEditController', [
         '$rootScope', '$scope', 'usersModel', '$stateParams', '$state',
         function($rootScope, $scope, usersModel, $stateParams, $state) {
 

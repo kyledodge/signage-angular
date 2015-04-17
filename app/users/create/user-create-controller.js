@@ -1,5 +1,17 @@
-angular.module('app')
-    .controller('userCreateController', [
+angular.module('app.users.create', [
+    'app.users.model',
+    'ui.router'
+])
+    .config(function($stateProvider) {
+        $stateProvider
+            .state('userCreate', {
+                url: '/users/create',
+                templateUrl: 'app/users/create/user-create.template.html',
+                controller: 'UserCreateController'
+            })
+    })
+
+    .controller('UserCreateController', [
         '$rootScope', '$scope', 'usersModel', '$stateParams', '$state',
         function($rootScope, $scope, usersModel, $stateParams, $state) {
             /***

@@ -1,6 +1,21 @@
-angular.module('app')
-    .controller('usersController', [
-        '$rootScope', '$scope', 'usersModel',
+angular.module('app.users', [
+    'ui.router',
+    'app.users.model'
+])
+    .config(function($stateProvider) {
+        $stateProvider
+            //users list state
+            .state('users', {
+                url: '/users',
+                templateUrl: 'app/users/users.template.html',
+                controller: 'UsersController'
+            })
+    })
+
+    .controller('UsersController', [
+        '$rootScope',
+        '$scope',
+        'UsersModel',
         function($rootScope, $scope, usersModel) {
 
             /***
