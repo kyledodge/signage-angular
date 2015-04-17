@@ -20,13 +20,13 @@ angular.module('app.config', ['ui.router'])
             .state('userEdit',{
                 url: '/users/:userID/edit',
                 templateUrl: 'app/users/edit/user-edit.template.html',
-                controller: 'usersController'
+                controller: 'userEditController'
             })
 
             //create new user state
             .state('userCreate',{
                 url: '/users/create',
                 templateUrl: 'app/users/create/user-create.template.html',
-                controller: 'usersController'
+                controller: 'userCreateController'
             })
 });
