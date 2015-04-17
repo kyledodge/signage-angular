@@ -1,6 +1,2 @@
-'use strict';
-
-angular.module('app', [
-    'app.config'
-]);
+angular.module('app', ['app.config']);
 
