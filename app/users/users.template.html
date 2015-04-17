@@ -1,8 +1,12 @@
-<h1 class="text-center">User Administration</h1>
 
-<a ui-sref="userCreate">Add New User</a>
+<div class="col-sm-12 text-right">
+    <a class="create-user-btn" ui-sref="userCreate">
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+        Add New User
+    </a>
+</div>
 
-<div ui-grid="userGrid" class="myGrid"></div>
+<h2 class="text-center">User Administration</h2>
 
+<div ui-grid="userGrid" class="user-grid"></div>
 
-<!---<a ui-sref="userEdit({userID: user.id})">Edit</a>--->

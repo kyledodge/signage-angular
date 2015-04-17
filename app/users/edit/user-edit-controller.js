@@ -1,15 +1,26 @@
 angular.module('app')
 
     .controller('userEditController', [
-        '$rootScope', '$scope', 'usersModel', '$stateParams', function($rootScope, $scope, usersModel, $stateParams) {
+        '$rootScope', '$scope', 'usersModel', '$stateParams', '$state',
+        function($rootScope, $scope, usersModel, $stateParams, $state) {
 
-        $scope.getUser = function(userID) {
-            $scope.user = usersModel.getUser(userID);
-        }
+            $scope.updateUser = function() {
+                usersModel.updateUser($scope.user);
+                $state.go('users');
+            };
 
-        $scope.init = function() {
-            $scope.getUser(Number($stateParams.userID));
-        }
+            $scope.deleteUser = function() {
+                usersModel.deleteUser($scope.user);
+                $state.go('users');
+            }
 
-        $scope.init();
+            $scope.cancelUser = function() {
+                $state.go('users');
+            };
+                
+            $scope.init = function() {
+                $scope.user = usersModel.getUser(Number($stateParams.userID));
+            }
+
+            $scope.init();
     }]);

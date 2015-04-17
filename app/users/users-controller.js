@@ -1,14 +1,12 @@
 angular.module('app')
 
     .controller('usersController', [
-        '$rootScope', '$scope', 'usersModel', '$stateParams', function($rootScope, $scope, usersModel, $stateParams) {
+        '$rootScope', '$scope', 'usersModel',
+        function($rootScope, $scope, usersModel) {
+
             $scope.getAllUsers = function() {
                 $scope.userList = usersModel.getUsers();
             }
-
-            $scope.showMe = function(x) {
-                console.log(x);
-            },
 
             $scope.initDatagrid = function() {
                 $scope.userGrid = {
@@ -18,9 +16,7 @@ angular.module('app')
                         {name: 'firstName'},
                         {name: 'lastName'},
                         {name: 'role'},
-                        {name: 'Actions',
-                            cellTemplate: '<a ui-sref="userEdit({userID: row.entity.id})">Edit</a>'
-                        }
+                        {name: 'Actions', cellTemplate: '<a ui-sref="userEdit({userID: row.entity.id})"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Edit</a>'}
                     ]
                 }
             }

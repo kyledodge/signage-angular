@@ -6,3 +6,9 @@ body {
     padding: 40px 15px;
     text-align: center;
 }
+
+/****** users *******/
+.user-grid {
+    width: 100%;
+    height: 100%;
+}
