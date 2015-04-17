@@ -46,6 +46,36 @@ angular.module('app')
                     return this.users[i];
                 }
             }
+        },
+
+        /***
+         * Updates an existing user
+         * @param {number} userID - id of user
+         * @param {string} firstName - first name of user
+         * @param {string} lastName - last name of user
+         */
+        this.updateUser = function(userID, firstName, lastName) {
+            for(var i=0; i < this.users.length; i++) {
+                if(this.users[i].id === userID) {
+                    this.users[i].firstName = firstName;
+                    this.users[i].lastName = lastName;
+                }
+            }
+        },
+
+        /***
+         * Inserts a new user
+         * @param {string} firstName - first name of user
+         * @param {string} lastName - last name of user
+         */
+        this.insertUser = function(firstName, lastName) {
+            this.users.push({
+                id: '',
+                firstName: firstName,
+                lastName: lastName,
+                userType: '',
+                lastLogin: ''
+            });
         }
 
     }]);
