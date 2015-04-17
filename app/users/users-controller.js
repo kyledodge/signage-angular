@@ -1,5 +1,4 @@
 angular.module('app')
-
     .controller('usersController', [
         '$rootScope', '$scope', 'usersModel',
         function($rootScope, $scope, usersModel) {
@@ -41,4 +40,5 @@ angular.module('app')
             }
 
             $scope.init();
-    }]);
+        }
+    ]);

@@ -1,5 +1,4 @@
 angular.module('app.config', ['ui.router', 'ui.grid'])
-
     .config(function($stateProvider) {
         $stateProvider
             //default state
@@ -29,4 +28,4 @@ angular.module('app.config', ['ui.router', 'ui.grid'])
                 templateUrl: 'app/users/create/user-create.template.html',
                 controller: 'userCreateController'
             })
-});
+    });

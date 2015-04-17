@@ -1,5 +1,4 @@
 angular.module('app')
-
     .controller('userCreateController', [
         '$rootScope', '$scope', 'usersModel', '$stateParams', '$state',
         function($rootScope, $scope, usersModel, $stateParams, $state) {
@@ -22,5 +21,6 @@ angular.module('app')
             $scope.cancelUser = function() {
                 $state.go('users');
             };
-    }])
+        }
+    ]);
 

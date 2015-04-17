@@ -1,5 +1,4 @@
 angular.module('app')
-
     .controller('userEditController', [
         '$rootScope', '$scope', 'usersModel', '$stateParams', '$state',
         function($rootScope, $scope, usersModel, $stateParams, $state) {
@@ -35,4 +34,5 @@ angular.module('app')
             }
 
             $scope.init();
-    }]);
+        }
+    ]);
