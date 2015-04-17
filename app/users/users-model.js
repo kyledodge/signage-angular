@@ -6,21 +6,21 @@ angular.module('app')
                 id: 1,
                 firstName: "John",
                 lastName: "Smith",
-                userType: "Member",
+                role: "Member",
                 lastLogin: "01/02/2015"
             },
             {
                 id: 2,
                 firstName: "Mike",
                 lastName: "Jones",
-                userType: "Member",
+                role: "Member",
                 lastLogin: "04/04/2015"
             },
             {
                 id: 3,
                 firstName: "James",
                 lastName: "Anderson",
-                userType: "Administrator",
+                role: "Administrator",
                 lastLogin: "03/02/2015"
             }
 
@@ -65,17 +65,10 @@ angular.module('app')
 
         /***
          * Inserts a new user
-         * @param {string} firstName - first name of user
-         * @param {string} lastName - last name of user
+         * @param {user} user - a user object
          */
-        this.insertUser = function(firstName, lastName) {
-            this.users.push({
-                id: '',
-                firstName: firstName,
-                lastName: lastName,
-                userType: '',
-                lastLogin: ''
-            });
+        this.insertUser = function(user) {
+            this.users.push(user);
         }
 
     }]);

@@ -1,4 +1,4 @@
-angular.module('app.config', ['ui.router'])
+angular.module('app.config', ['ui.router', 'ui.grid'])
 
     .config(function($stateProvider){
         $stateProvider

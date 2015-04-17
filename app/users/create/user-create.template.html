@@ -1,35 +1,35 @@
 <h1 class="text-center">Create New User</h1>
 
-<form class="form-horizontal">
+<form class="form-horizontal" ng-submit="insertUser()">
     <div class="form-group">
         <label for="inputUserID" class="col-sm-4 control-label">User ID</label>
         <div class="col-sm-5">
-            <input type="text" class="form-control" id="inputUserID">
+            <input type="text" class="form-control" id="inputUserID" ng-model="newUserData.id">
         </div>
     </div>
     <div class="form-group">
         <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
         <div class="col-sm-5">
-            <input type="text" class="form-control" id="inputFirstName">
+            <input type="text" class="form-control" id="inputFirstName" ng-model="newUserData.firstName">
         </div>
     </div>
     <div class="form-group">
         <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
         <div class="col-sm-5">
-            <input type="password" class="form-control" id="inputLastName">
+            <input type="text" class="form-control" id="inputLastName" ng-model="newUserData.lastName">
         </div>
     </div>
     <div class="form-group">
         <label for="inputLastLogin" class="col-sm-4 control-label">Last Login</label>
         <div class="col-sm-5">
-            <input type="text" class="form-control" id="inputLastLogin">
+            <input type="text" class="form-control" id="inputLastLogin" ng-model="newUserData.lastLogin">
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-5 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="submit" class="btn btn-default">Cancel</button>
+            <button type="button" class="btn btn-default" ng-click="cancelUser()">Cancel</button>
         </div>
     </div>
 </form>

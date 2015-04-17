@@ -6,13 +6,28 @@ angular.module('app')
                 $scope.userList = usersModel.getUsers();
             }
 
-            $scope.getUser = function() {
-                $scope.user = usersModel.getUser(Number($stateParams.userID));
+            $scope.showMe = function(x) {
+                console.log(x);
+            },
+
+            $scope.initDatagrid = function() {
+                $scope.userGrid = {
+                    data: $scope.userList,
+                    columnDefs: [
+                        {name: 'id'},
+                        {name: 'firstName'},
+                        {name: 'lastName'},
+                        {name: 'role'},
+                        {name: 'Actions',
+                            cellTemplate: '<a ui-sref="userEdit({userID: row.entity.id})">Edit</a>'
+                        }
+                    ]
+                }
             }
 
             $scope.init = function() {
                 $scope.getAllUsers();
-                $scope.getUser();
+                $scope.initDatagrid();
             }
 
             $scope.init();
