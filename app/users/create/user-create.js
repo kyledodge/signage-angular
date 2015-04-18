@@ -1,6 +1,7 @@
 angular.module('app.users.create', [
     'app.users.model',
-    'ui.router'
+    'ui.router',
+    'ngMessages'
 ])
     .config([
         '$stateProvider',
@@ -22,6 +23,18 @@ angular.module('app.users.create', [
              * model to hold new user information from form
              */
             userCreateCtrl.newUserData = {};
+            userCreateCtrl.userRoles = UsersModel.roles;
+
+            /***
+             * handles new user form submission
+             */
+            userCreateCtrl.submitForm = function() {
+                if (userCreateCtrl.userForm.$valid) {
+                    userCreateCtrl.insertUser();
+                } else {
+                    return false;
+                }
+            };
 
             /***
              * inserts a new user and navigates to user list
@@ -30,6 +43,7 @@ angular.module('app.users.create', [
                 UsersModel.insertUser(userCreateCtrl.newUserData);
                 $state.go('users');
             };
+
 
             /***
              * cancels new user creation and navigates to user list

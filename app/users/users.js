@@ -33,15 +33,17 @@ angular.module('app.users', [
                 usersCtrl.userGrid = {
                     data: usersCtrl.userList,
                     columnDefs: [
-                        {name: 'id'},
-                        {name: 'firstName'},
-                        {name: 'lastName'},
-                        {name: 'role'},
+                        {name: 'id', displayName: 'User ID', enableColumnMenu: false},
+                        {name: 'firstName', displayName: 'First Name', enableColumnMenu: false},
+                        {name: 'lastName', displayName: 'Last Name', enableColumnMenu: false},
+                        {name: 'email', displayName: 'Email', enableColumnMenu: false},
+                        {name: 'role.roleName', displayName: 'User Role', enableColumnMenu: false},
                         {
                             name: 'Actions',
-                            cellTemplate: '<a ui-sref="userEdit({userID: row.entity.id})">' +
-                            '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>' +
-                            'Edit</a>'
+                            enableColumnMenu: false,
+                            cellTemplate: '<div class="ui-grid-cell-contents"><a ui-sref="userEdit({userID: row.entity.id})">' +
+                            '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> ' +
+                            'Edit</a></div>'
                         }
                     ]
                 }

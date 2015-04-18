@@ -1,6 +1,7 @@
 angular.module('app.users.edit', [
     'app.users.model',
-    'ui.router'
+    'ui.router',
+    'ngMessages'
 ])
     .config([
         '$stateProvider',
@@ -17,6 +18,17 @@ angular.module('app.users.edit', [
         'UsersModel', '$stateParams', '$state',
         function(UsersModel, $stateParams, $state) {
             var userEditCtrl = this;
+
+            /***
+             * handles user form submission
+             */
+            userEditCtrl.submitForm = function() {
+                if (userEditCtrl.userForm.$valid) {
+                    userEditCtrl.updateUser();
+                } else {
+                    return false;
+                }
+            };
 
             /***
              * updates an existing user and navigates to user list

@@ -1,36 +1,71 @@
-<h1>Edit User</h1>
+<h3 class="text-center">Edit User</h3>
 
-<form class="form-horizontal text-center" ng-submit="userEditCtrl.updateUser()">
+<form name="userEditCtrl.userForm" class="form-horizontal" ng-submit="userEditCtrl.submitForm()" novalidate>
+
     <div class="form-group">
-        <label for="inputUserID" class="col-sm-4 control-label">User ID</label>
-        <div class="col-sm-5">
-            <input id="inputUserID" type="text" class="form-control" ng-model="userEditCtrl.user.id">
+        <label class="col-sm-4 control-label">User ID</label>
+        <div class="col-sm-5 help-block text-left">
+            {{userEditCtrl.user.id}}
         </div>
     </div>
+
     <div class="form-group">
         <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
         <div class="col-sm-5">
-            <input id="inputFirstName" type="text" class="form-control" ng-model="userEditCtrl.user.firstName">
+            <input id="inputFirstName" name="firstName" type="text" class="form-control"
+                   ng-model="userEditCtrl.user.firstName" required>
+        </div>
+        <div ng-messages="userEditCtrl.userForm.firstName.$error" role="alert" class="has-error"
+             ng-if='userEditCtrl.userForm.firstName.$dirty || userEditCtrl.userForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">First name is required.</div>
         </div>
     </div>
+
     <div class="form-group">
         <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
         <div class="col-sm-5">
-            <input id="inputLastName" type="text" class="form-control" ng-model="userEditCtrl.user.lastName">
+            <input id="inputLastName" name="lastName" type="text" class="form-control"
+                   ng-model="userEditCtrl.user.lastName" required>
+        </div>
+        <div ng-messages="userEditCtrl.userForm.lastName.$error" role="alert" class="has-error"
+             ng-if='userEditCtrl.userForm.lastName.$dirty || userEditCtrl.userForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">Last name is required.</div>
         </div>
     </div>
+
     <div class="form-group">
-        <label for="inputLastLogin" class="col-sm-4 control-label">Last Login</label>
+        <label for="inputEmail" class="col-sm-4 control-label">Email</label>
         <div class="col-sm-5">
-            <input id="inputLastLogin" type="text" class="form-control" ng-model="userEditCtrl.user.lastLogin">
+            <input id="inputEmail" name="email" type="email" class="form-control"
+                   ng-model="userEditCtrl.user.email" required>
+        </div>
+        <div ng-messages="userEditCtrl.userForm.email.$error" role="alert" class="has-error"
+             ng-if='userEditCtrl.userForm.email.$dirty || userEditCtrl.userForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">Email is required.</div>
+            <div ng-message="email" class="col-sm-3 help-block">Email is invalid.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label class="col-sm-4 control-label">Last Login</label>
+        <div class="col-sm-5 help-block text-left">
+            {{userEditCtrl.user.lastLogin}}
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-5 text-center">
-            <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="submit" class="btn btn-default" ng-click="userEditCtrl.cancelUser()">Cancel</button>
-            <button type="submit" class="btn btn-warning" ng-click="userEditCtrl.deleteUser()">Delete</button>
+            <button type="submit" class="btn btn-default pull-left" ng-click="userEditCtrl.cancelUser()">
+                Cancel
+            </button>
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-ok"></span>
+                Update User
+            </button>
+            <button type="submit" class="btn btn-danger pull-right" ng-click="userEditCtrl.deleteUser()">
+                <span class="glyphicon glyphicon-remove"></span>
+                Delete User
+            </button>
         </div>
     </div>
 </form>

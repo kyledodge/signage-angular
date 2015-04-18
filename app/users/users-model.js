@@ -9,22 +9,49 @@ angular.module('app.users.model', [
                 id: 1,
                 firstName: "John",
                 lastName: "Smith",
-                role: "Member",
+                role: {
+                    id: 1,
+                    roleName: "Member"
+                },
+                email: "john@test.com",
                 lastLogin: "01/02/2015"
             },
             {
                 id: 2,
                 firstName: "Mike",
                 lastName: "Jones",
-                role: "Member",
+                role: {
+                    id: 1,
+                    roleName: "Member"
+                },
+                email: "mike@test.com",
                 lastLogin: "04/04/2015"
             },
             {
                 id: 3,
                 firstName: "James",
                 lastName: "Anderson",
-                role: "Administrator",
+                role: {
+                    id: 1,
+                    roleName: "Member"
+                },
+                email: "james@test.com",
                 lastLogin: "03/02/2015"
+            }
+        ];
+
+        this.roles = [
+            {
+                id: 1,
+                roleName: "Member"
+            },
+            {
+                id: 2,
+                roleName: "Developer"
+            },
+            {
+                id: 3,
+                roleName: "Administrator"
             }
         ];
 
@@ -85,6 +112,7 @@ angular.module('app.users.model', [
          * @param {user} user - user object to be inserted
          */
         this.insertUser = function(user) {
+            user.id = this.users[this.users.length-1].id + 1;
             this.users.push(user);
         }
 
