@@ -2,35 +2,36 @@ angular.module('app.users', [
     'ui.router',
     'app.users.model'
 ])
-    .config(function($stateProvider) {
+    .config([
+        '$stateProvider',
+        function($stateProvider) {
         $stateProvider
             //users list state
             .state('users', {
                 url: '/users',
                 templateUrl: 'app/users/users.template.html',
-                controller: 'UsersController'
+                controller: 'UsersController as usersCtrl'
             })
-    })
+    }])
 
     .controller('UsersController', [
-        '$rootScope',
-        '$scope',
         'UsersModel',
-        function($rootScope, $scope, usersModel) {
+        function(UsersModel) {
+            var usersCtrl = this;
 
             /***
              * retrieves all users for display in the user list
              */
-            $scope.getAllUsers = function() {
-                $scope.userList = usersModel.getUsers();
+            usersCtrl.getAllUsers = function() {
+                usersCtrl.userList = UsersModel.getUsers();
             }
 
             /***
              * initialize the datagrid
              */
-            $scope.initDatagrid = function() {
-                $scope.userGrid = {
-                    data: $scope.userList,
+            usersCtrl.initDatagrid = function() {
+                usersCtrl.userGrid = {
+                    data: usersCtrl.userList,
                     columnDefs: [
                         {name: 'id'},
                         {name: 'firstName'},
@@ -49,11 +50,11 @@ angular.module('app.users', [
             /***
              * initializes the controller: retrieves users, inits datagrid
              */
-            $scope.init = function() {
-                $scope.getAllUsers();
-                $scope.initDatagrid();
+            usersCtrl.init = function() {
+                usersCtrl.getAllUsers();
+                usersCtrl.initDatagrid();
             }
 
-            $scope.init();
+            usersCtrl.init();
         }
     ]);

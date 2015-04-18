@@ -1,5 +1,4 @@
 angular.module('app.users.model', [
-
 ])
     .service("UsersModel", function() {
         /***

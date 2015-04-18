@@ -2,35 +2,39 @@ angular.module('app.users.create', [
     'app.users.model',
     'ui.router'
 ])
-    .config(function($stateProvider) {
+    .config([
+        '$stateProvider',
+        function($stateProvider) {
         $stateProvider
             .state('userCreate', {
                 url: '/users/create',
                 templateUrl: 'app/users/create/user-create.template.html',
-                controller: 'UserCreateController'
+                controller: 'UserCreateController as userCreateCtrl'
             })
-    })
+    }])
 
     .controller('UserCreateController', [
-        '$rootScope', '$scope', 'usersModel', '$stateParams', '$state',
-        function($rootScope, $scope, usersModel, $stateParams, $state) {
+        'UsersModel', '$stateParams', '$state',
+        function(UsersModel, $stateParams, $state) {
+            var userCreateCtrl = this;
+
             /***
              * model to hold new user information from form
              */
-            $scope.newUserData = {};
+            userCreateCtrl.newUserData = {};
 
             /***
              * inserts a new user and navigates to user list
              */
-            $scope.insertUser = function() {
-                usersModel.insertUser($scope.newUserData);
+            userCreateCtrl.insertUser = function() {
+                UsersModel.insertUser(userCreateCtrl.newUserData);
                 $state.go('users');
             };
 
             /***
              * cancels new user creation and navigates to user list
              */
-            $scope.cancelUser = function() {
+            userCreateCtrl.cancelUser = function() {
                 $state.go('users');
             };
         }

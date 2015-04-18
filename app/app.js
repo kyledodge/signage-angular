@@ -6,4 +6,3 @@ angular.module('app', [
     'app.users.edit',
     'ui.router'
 ]);
-

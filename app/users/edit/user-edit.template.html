@@ -1,36 +1,36 @@
 <h1>Edit User</h1>
 
-<form class="form-horizontal text-center" ng-submit="updateUser()">
+<form class="form-horizontal text-center" ng-submit="userEditCtrl.updateUser()">
     <div class="form-group">
         <label for="inputUserID" class="col-sm-4 control-label">User ID</label>
         <div class="col-sm-5">
-            <input id="inputUserID" type="text" class="form-control" ng-model="user.id">
+            <input id="inputUserID" type="text" class="form-control" ng-model="userEditCtrl.user.id">
         </div>
     </div>
     <div class="form-group">
         <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
         <div class="col-sm-5">
-            <input id="inputFirstName" type="text" class="form-control" ng-model="user.firstName">
+            <input id="inputFirstName" type="text" class="form-control" ng-model="userEditCtrl.user.firstName">
         </div>
     </div>
     <div class="form-group">
         <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
         <div class="col-sm-5">
-            <input id="inputLastName" type="text" class="form-control" ng-model="user.lastName">
+            <input id="inputLastName" type="text" class="form-control" ng-model="userEditCtrl.user.lastName">
         </div>
     </div>
     <div class="form-group">
         <label for="inputLastLogin" class="col-sm-4 control-label">Last Login</label>
         <div class="col-sm-5">
-            <input id="inputLastLogin" type="text" class="form-control" ng-model="user.lastLogin">
+            <input id="inputLastLogin" type="text" class="form-control" ng-model="userEditCtrl.user.lastLogin">
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-5 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="submit" class="btn btn-default" ng-click="cancelUser()">Cancel</button>
-            <button type="submit" class="btn btn-warning" ng-click="deleteUser()">Delete</button>
+            <button type="submit" class="btn btn-default" ng-click="userEditCtrl.cancelUser()">Cancel</button>
+            <button type="submit" class="btn btn-warning" ng-click="userEditCtrl.deleteUser()">Delete</button>
         </div>
     </div>
 </form>

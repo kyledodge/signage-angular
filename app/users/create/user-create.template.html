@@ -1,35 +1,35 @@
 <h1 class="text-center">Create New User</h1>
 
-<form class="form-horizontal" ng-submit="insertUser()">
+<form class="form-horizontal" ng-submit="userCreateCtrl.insertUser()">
     <div class="form-group">
         <label for="inputUserID" class="col-sm-4 control-label">User ID</label>
         <div class="col-sm-5">
-            <input type="text" class="form-control" id="inputUserID" ng-model="newUserData.id">
+            <input type="text" class="form-control" id="inputUserID" ng-model="userCreateCtrl.newUserData.id">
         </div>
     </div>
     <div class="form-group">
         <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
         <div class="col-sm-5">
-            <input type="text" class="form-control" id="inputFirstName" ng-model="newUserData.firstName">
+            <input type="text" class="form-control" id="inputFirstName" ng-model="userCreateCtrl.newUserData.firstName">
         </div>
     </div>
     <div class="form-group">
         <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
         <div class="col-sm-5">
-            <input type="text" class="form-control" id="inputLastName" ng-model="newUserData.lastName">
+            <input type="text" class="form-control" id="inputLastName" ng-model="userCreateCtrl.newUserData.lastName">
         </div>
     </div>
     <div class="form-group">
         <label for="inputLastLogin" class="col-sm-4 control-label">Last Login</label>
         <div class="col-sm-5">
-            <input type="text" class="form-control" id="inputLastLogin" ng-model="newUserData.lastLogin">
+            <input type="text" class="form-control" id="inputLastLogin" ng-model="userCreateCtrl.newUserData.lastLogin">
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-5 text-center">
             <button type="submit" class="btn btn-primary">Submit</button>
-            <button type="button" class="btn btn-default" ng-click="cancelUser()">Cancel</button>
+            <button type="button" class="btn btn-default" ng-click="userCreateCtrl.cancelUser()">Cancel</button>
         </div>
     </div>
 </form>

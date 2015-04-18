@@ -2,11 +2,13 @@ angular.module('app.config', [
     'ui.router',
     'ui.grid'
 ])
-    .config(function($stateProvider, $urlRouterProvider) {
-        // the known route, with missing '/' - let's create alias
+    .config([
+        '$stateProvider', '$urlRouterProvider',
+        function($stateProvider, $urlRouterProvider) {
+        //alias an empty route to the root route
         $urlRouterProvider.when('', '/');
 
-        // the unknown
+        //all unknown routes direct to the 404 route
         $urlRouterProvider.otherwise('/404');
 
         $stateProvider
@@ -14,4 +16,4 @@ angular.module('app.config', [
                 url: '/404',
                 templateUrl: 'app/common/404.template.html'
             })
-    });
+    }]);
