@@ -10,12 +10,7 @@ angular.module('app.users.edit', [
             .state('userEdit', {
                 url: '/users/:userID/edit',
                 templateUrl: 'app/users/edit/user-edit.template.html',
-                controller: 'UserEditController as userEditCtrl',
-                resolve: {
-                    "currentAuth": ["Auth", function(Auth) {
-                        return Auth.$requireAuth();
-                    }]
-                }
+                controller: 'UserEditController as userEditCtrl'
             })
     }])
 

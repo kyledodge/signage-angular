@@ -1,7 +1,6 @@
 angular.module('app.users', [
     'ui.router',
-    'app.users.model',
-    'firebase'
+    'app.users.model'
 ])
     .config([
         '$stateProvider',
@@ -11,20 +10,15 @@ angular.module('app.users', [
             .state('users', {
                 url: '/users',
                 templateUrl: 'app/users/users.template.html',
-                controller: 'UsersController as usersCtrl',
-                resolve: {
-                    "currentAuth": ["AuthFactory", function(authFactory) {
-                        return authFactory.$requireAuth();
-                    }]
-                }
+                controller: 'UsersController as usersCtrl'
             })
     }])
 
     .controller('UsersController', [
         'UsersModel',
-        'currentAuth',
-        function(UsersModel, currentAuth) {
+        function(UsersModel) {
             var usersCtrl = this;
+
             /***
              * retrieves all users for display in the user list
              */
