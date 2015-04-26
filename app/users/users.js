@@ -13,8 +13,9 @@ angular.module('app.users', [
                 templateUrl: 'app/users/users.template.html',
                 controller: 'UsersController as usersCtrl',
                 resolve: {
-                    "currentAuth": ["AuthFactory", function(authFactory) {
-                        return authFactory.$requireAuth();
+                    "currentAuth": ["AuthFactory",'$firebaseAuth', function(AuthFactory, $firebaseAuth) {
+                        var auth = $firebaseAuth(AuthFactory);
+                        return auth.$requireAuth();
                     }]
                 }
             })

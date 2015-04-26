@@ -16,14 +16,14 @@ angular.module('app.auth', [
     }])
 
     .factory("AuthFactory", ["$firebaseAuth", function($firebaseAuth) {
-        var ref = new Firebase("https://bhhstrothsigns.firebaseio.com/");
-        return $firebaseAuth(ref);
+        return new Firebase("https://bhhstrothsigns.firebaseio.com/");
     }])
 
     .controller('AuthController', [
         'AuthFactory',
         'AuthModel',
-        function(authFactory, authModel) {
+        '$state',
+        function(AuthFactory, AuthModel, $state) {
             var authCtrl = this;
             /***
              * initializes the controller:
@@ -32,20 +32,28 @@ angular.module('app.auth', [
             },
 
             authCtrl.loginFormSubmit = function() {
-                authFactory.$authWithPassword({
-                    email: authCtrl.loginForm.email,
-                    password : authCtrl.loginForm.password
+                var username = authCtrl.loginForm.email.value,
+                    password = authCtrl.loginForm.password.value
+
+                authCtrl.login(username, password);
+            },
+
+            authCtrl.login = function(username, password) {
+                AuthFactory.authWithPassword({
+                    email: username,
+                    password : password
                 }, function(error, authData) {
                     if (error) {
                         console.log("Login Failed!", error);
                     } else {
                         console.log("Authenticated successfully with payload:", authData);
+                        $state.go("default");
                     }
                 });
             },
 
             authCtrl.logout = function() {
-                authFactory.$unauth();
+                AuthFactory.unauth();
 
             }
 
