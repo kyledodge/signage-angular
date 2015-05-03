@@ -1,54 +1,52 @@
-<h3 class="text-center">Create New User</h3>
+<h3 class="text-center">Create New Sign</h3>
 
-<form name="userCreateCtrl.userForm" class="form-horizontal" ng-submit="userCreateCtrl.submitForm()" novalidate>
+<form name="signCreateCtrl.signForm" class="form-horizontal" ng-submit="signCreateCtrl.submitForm()" novalidate>
 
     <div class="form-group">
-        <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
+        <label for="inputSignNumber" class="col-sm-4 control-label">Sign Number</label>
         <div class="col-sm-5">
-            <input id="inputFirstName" name="firstName" type="text" class="form-control"
-                   ng-model="userCreateCtrl.newUserData.firstName" required>
+            <input id="inputSignNumber" name="signNumber" type="text" class="form-control"
+                   ng-model="signCreateCtrl.newSignData.signNumber" required>
         </div>
-        <div ng-messages="userCreateCtrl.userForm.firstName.$error" role="alert" class="has-error"
-             ng-if='userCreateCtrl.userForm.firstName.$dirty || userCreateCtrl.userForm.$submitted'>
-            <div ng-message="required" class="col-sm-3 help-block">First name is required.</div>
+        <div ng-messages="signCreateCtrl.signForm.signNumber.$error" role="alert" class="has-error"
+             ng-if='signCreateCtrl.signForm.signNumber.$dirty || signCreateCtrl.signForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">Sign Number is required.</div>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
+        <label for="inputAddress" class="col-sm-4 control-label">Address</label>
         <div class="col-sm-5">
-            <input id="inputLastName" name="lastName" type="text" class="form-control"
-                   ng-model="userCreateCtrl.newUserData.lastName" required>
+            <input id="inputAddress" name="address" type="text" class="form-control"
+                   ng-model="signCreateCtrl.newSignData.address" required>
         </div>
-        <div ng-messages="userCreateCtrl.userForm.lastName.$error" role="alert" class="has-error"
-             ng-if='userCreateCtrl.userForm.lastName.$dirty || userCreateCtrl.userForm.$submitted'>
-            <div ng-message="required" class="col-sm-3 help-block">Last name is required.</div>
+        <div ng-messages="signCreateCtrl.signForm.address.$error" role="alert" class="has-error"
+             ng-if='signCreateCtrl.signForm.address.$dirty || signCreateCtrl.signForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">Address is required.</div>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="inputEmail" class="col-sm-4 control-label">Email</label>
+        <label for="inputCity" class="col-sm-4 control-label">City</label>
         <div class="col-sm-5">
-            <input id="inputEmail" name="email" type="email" class="form-control"
-                   ng-model="userCreateCtrl.newUserData.email" required>
+            <input id="inputCity" name="city" type="text" class="form-control"
+                   ng-model="signCreateCtrl.newSignData.city" required>
         </div>
-        <div ng-messages="userCreateCtrl.userForm.email.$error" role="alert" class="has-error"
-             ng-if='userCreateCtrl.userForm.email.$dirty || userCreateCtrl.userForm.$submitted'>
-            <div ng-message="required" class="col-sm-3 help-block">Email is required.</div>
-            <div ng-message="email" class="col-sm-3 help-block">Email is invalid.</div>
+        <div ng-messages="signCreateCtrl.signForm.city.$error" role="alert" class="has-error"
+             ng-if='signCreateCtrl.signForm.city.$dirty || signCreateCtrl.signForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">City is required.</div>
         </div>
     </div>
 
     <div class="form-group">
-        <label for="inputUserRole" class="col-sm-4 control-label">User Role</label>
+        <label for="inputZip" class="col-sm-4 control-label">Zip</label>
         <div class="col-sm-5">
-            <select id="inputUserRole" name="userRole" class="form-control" ng-model="userCreateCtrl.newUserData.role"
-                    ng-options="role.roleName for role in userCreateCtrl.userRoles" required>
-            </select>
+            <input id="inputZip" name="zip" type="text" class="form-control"
+                   ng-model="signCreateCtrl.newSignData.zip" required>
         </div>
-        <div ng-messages="userCreateCtrl.userForm.userRole.$error" role="alert" class="has-error"
-             ng-if='userCreateCtrl.userForm.userRole.$dirty || userCreateCtrl.userForm.$submitted'>
-            <div ng-message="required" class="col-sm-3 help-block">User role is required.</div>
+        <div ng-messages="signCreateCtrl.signForm.zip.$error" role="alert" class="has-error"
+             ng-if='signCreateCtrl.signForm.zip.$dirty || signCreateCtrl.signForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">Zip is required.</div>
         </div>
     </div>
 
@@ -56,9 +54,9 @@
         <div class="col-sm-offset-4 col-sm-5 text-center">
             <button type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-ok"></span>
-                Create User
+                Create Sign
             </button>
-            <button type="submit" class="btn btn-default" ng-click="userCreateCtrl.cancelUser()">
+            <button type="submit" class="btn btn-default" ng-click="signCreateCtrl.cancelSign()">
                 Cancel
             </button>
         </div>

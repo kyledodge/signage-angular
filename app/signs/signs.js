@@ -1,47 +1,47 @@
-angular.module('app.users', [
+angular.module('app.signs', [
     'ui.router',
-    'app.users.model'
+    'app.signs.model'
 ])
     .config([
         '$stateProvider',
         function($stateProvider) {
         $stateProvider
-            //users list state
-            .state('users', {
-                url: '/users',
-                templateUrl: 'app/users/users.template.html',
-                controller: 'UsersController as usersCtrl'
+            //signs list state
+            .state('signs', {
+                url: '/signs',
+                templateUrl: 'app/signs/signs.template.html',
+                controller: 'SignsController as signsCtrl'
             })
     }])
 
-    .controller('UsersController', [
-        'UsersModel',
-        function(UsersModel) {
-            var usersCtrl = this;
+    .controller('SignsController', [
+        'SignsModel',
+        function(SignsModel) {
+            var signsCtrl = this;
 
             /***
-             * retrieves all users for display in the user list
+             * retrieves all signs for display in the sign list
              */
-            usersCtrl.getAllUsers = function() {
-                usersCtrl.userList = UsersModel.getUsers();
+            signsCtrl.getAllSigns = function() {
+                signsCtrl.signList = SignsModel.getSigns();
             }
 
             /***
              * initialize the datagrid
              */
-            usersCtrl.initDatagrid = function() {
-                usersCtrl.userGrid = {
-                    data: usersCtrl.userList,
+            signsCtrl.initDatagrid = function() {
+                signsCtrl.signGrid = {
+                    data: signsCtrl.signList,
                     columnDefs: [
-                        {name: 'id', displayName: 'User ID', enableColumnMenu: false},
-                        {name: 'firstName', displayName: 'First Name', enableColumnMenu: false},
-                        {name: 'lastName', displayName: 'Last Name', enableColumnMenu: false},
-                        {name: 'email', displayName: 'Email', enableColumnMenu: false},
-                        {name: 'role.roleName', displayName: 'User Role', enableColumnMenu: false},
+                        {name: 'id', displayName: 'Sign Number', enableColumnMenu: false},
+                        {name: 'address', displayName: 'Address', enableColumnMenu: false},
+                        {name: 'city', displayName: 'City', enableColumnMenu: false},
+                        {name: 'state', displayName: 'State', enableColumnMenu: false},
+                        {name: 'zip', displayName: 'Zip', enableColumnMenu: false},
                         {
                             name: 'Actions',
                             enableColumnMenu: false,
-                            cellTemplate: '<div class="ui-grid-cell-contents"><a ui-sref="userEdit({userID: row.entity.id})">' +
+                            cellTemplate: '<div class="ui-grid-cell-contents"><a ui-sref="signEdit({signID: row.entity.id})">' +
                             '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> ' +
                             'Edit</a></div>'
                         }
@@ -50,13 +50,13 @@ angular.module('app.users', [
             }
 
             /***
-             * initializes the controller: retrieves users, inits datagrid
+             * initializes the controller: retrieves signs, inits datagrid
              */
-            usersCtrl.init = function() {
-                usersCtrl.getAllUsers();
-                usersCtrl.initDatagrid();
+            signsCtrl.init = function() {
+                signsCtrl.getAllSigns();
+                signsCtrl.initDatagrid();
             }
 
-            usersCtrl.init();
+            signsCtrl.init();
         }
     ]);

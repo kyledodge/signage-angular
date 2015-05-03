@@ -12,8 +12,9 @@ angular.module('app.users.edit', [
                 templateUrl: 'app/users/edit/user-edit.template.html',
                 controller: 'UserEditController as userEditCtrl',
                 resolve: {
-                    "currentAuth": ["Auth", function(Auth) {
-                        return Auth.$requireAuth();
+                    "currentAuth": ["AuthFactory",'$firebaseAuth', function(AuthFactory, $firebaseAuth) {
+                        var auth = $firebaseAuth(AuthFactory);
+                        return auth.$requireAuth();
                     }]
                 }
             })

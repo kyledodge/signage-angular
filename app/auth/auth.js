@@ -29,6 +29,7 @@ angular.module('app.auth', [
              * initializes the controller:
              */
             authCtrl.init = function() {
+                AuthFactory.unauth();
             },
 
             authCtrl.loginFormSubmit = function() {
@@ -53,7 +54,7 @@ angular.module('app.auth', [
             },
 
             authCtrl.logout = function() {
-                AuthFactory.unauth();
+
 
             }
 

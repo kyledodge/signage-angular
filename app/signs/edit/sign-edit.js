@@ -1,5 +1,5 @@
-angular.module('app.users.edit', [
-    'app.users.model',
+angular.module('app.signs.edit', [
+    'app.signs.model',
     'ui.router',
     'ngMessages'
 ])
@@ -7,59 +7,59 @@ angular.module('app.users.edit', [
         '$stateProvider',
         function($stateProvider) {
         $stateProvider
-            .state('userEdit', {
-                url: '/users/:userID/edit',
-                templateUrl: 'app/users/edit/user-edit.template.html',
-                controller: 'UserEditController as userEditCtrl'
+            .state('signEdit', {
+                url: '/signs/:signID/edit',
+                templateUrl: 'app/signs/edit/sign-edit.template.html',
+                controller: 'SignEditController as signEditCtrl'
             })
     }])
 
-    .controller('UserEditController', [
-        'UsersModel', '$stateParams', '$state',
-        function(UsersModel, $stateParams, $state) {
-            var userEditCtrl = this;
+    .controller('SignEditController', [
+        'SignsModel', '$stateParams', '$state',
+        function(SignsModel, $stateParams, $state) {
+            var signEditCtrl = this;
 
             /***
-             * handles user form submission
+             * handles sign form submission
              */
-            userEditCtrl.submitForm = function() {
-                if (userEditCtrl.userForm.$valid) {
-                    userEditCtrl.updateUser();
+            signEditCtrl.submitForm = function() {
+                if (signEditCtrl.signForm.$valid) {
+                    signEditCtrl.updateSign();
                 } else {
                     return false;
                 }
             };
 
             /***
-             * updates an existing user and navigates to user list
+             * updates an existing sign and navigates to sign list
              */
-            userEditCtrl.updateUser = function() {
-                UsersModel.updateUser(userEditCtrl.user);
-                $state.go('users');
+            signEditCtrl.updateSign = function() {
+                SignsModel.updateSign(signEditCtrl.sign);
+                $state.go('signs');
             };
 
             /***
-             * deletes an existing user and navigates to user list
+             * deletes an existing sign and navigates to sign list
              */
-            userEditCtrl.deleteUser = function() {
-                UsersModel.deleteUser(userEditCtrl.user);
-                setTimeout(function(){$state.go('users')},1000);
+            signEditCtrl.deleteSign = function() {
+                SignsModel.deleteSign(signEditCtrl.sign);
+                setTimeout(function(){$state.go('signs')},1000);
             }
 
             /***
-             * cancels editing existing user and navigates to user list
+             * cancels editing existing sign and navigates to sign list
              */
-            userEditCtrl.cancelUser = function() {
-                $state.go('users');
+            signEditCtrl.cancelSign = function() {
+                $state.go('signs');
             };
 
             /***
-             * initializes the controller: fetches user based on route userID
+             * initializes the controller: fetches sign based on route signID
              */
-            userEditCtrl.init = function() {
-                userEditCtrl.user = UsersModel.getUser(Number($stateParams.userID));
+            signEditCtrl.init = function() {
+                signEditCtrl.sign = SignsModel.getSign(Number($stateParams.signID));
             }
 
-            userEditCtrl.init();
+            signEditCtrl.init();
         }
     ]);

@@ -1,5 +1,5 @@
-angular.module('app.users.create', [
-    'app.users.model',
+angular.module('app.signs.create', [
+    'app.signs.model',
     'ui.router',
     'ngMessages'
 ])
@@ -7,49 +7,48 @@ angular.module('app.users.create', [
         '$stateProvider',
         function($stateProvider) {
         $stateProvider
-            .state('userCreate', {
-                url: '/users/create',
-                templateUrl: 'app/users/create/user-create.template.html',
-                controller: 'UserCreateController as userCreateCtrl'
+            .state('signCreate', {
+                url: '/signs/create',
+                templateUrl: 'app/signs/create/sign-create.template.html',
+                controller: 'SignCreateController as signCreateCtrl'
             })
     }])
 
-    .controller('UserCreateController', [
-        'UsersModel', '$stateParams', '$state',
-        function(UsersModel, $stateParams, $state) {
-            var userCreateCtrl = this;
+    .controller('SignCreateController', [
+        'SignsModel', '$stateParams', '$state',
+        function(SignsModel, $stateParams, $state) {
+            var signCreateCtrl = this;
 
             /***
-             * model to hold new user information from form
+             * model to hold new sign information from form
              */
-            userCreateCtrl.newUserData = {};
-            userCreateCtrl.userRoles = UsersModel.roles;
+            signCreateCtrl.newSignData = {};
 
             /***
-             * handles new user form submission
+             * handles new sign form submission
              */
-            userCreateCtrl.submitForm = function() {
-                if (userCreateCtrl.userForm.$valid) {
-                    userCreateCtrl.insertUser();
+            signCreateCtrl.submitForm = function() {
+                if (signCreateCtrl.signForm.$valid) {
+                    signCreateCtrl.insertSign();
                 } else {
                     return false;
                 }
             };
 
             /***
-             * inserts a new user and navigates to user list
+             * inserts a new sign and navigates to sign list
              */
-            userCreateCtrl.insertUser = function() {
-                UsersModel.insertUser(userCreateCtrl.newUserData);
-                $state.go('users');
+            signCreateCtrl.insertSign = function() {
+                SignsModel.insertSign(signCreateCtrl.newSignData);
+                $state.go('signs');
             };
 
 
             /***
-             * cancels new user creation and navigates to user list
+             * cancels new sign creation and navigates to sign list
              */
-            userCreateCtrl.cancelUser = function() {
-                $state.go('users');
+            signCreateCtrl.cancelSign = function() {
+                $state.go('signs');
             };
         }
     ]);

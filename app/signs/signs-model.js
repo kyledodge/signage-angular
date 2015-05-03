@@ -1,119 +1,90 @@
-angular.module('app.users.model', [
+angular.module('app.signs.model', [
 ])
-    .service("UsersModel", function() {
+    .service("SignsModel", function() {
         /***
-         * list array of users
+         * list array of signs
          */
-        this.users = [
+        this.signs = [
             {
                 id: 1,
-                firstName: "John",
-                lastName: "Smith",
-                role: {
+                address: "1234 State St",
+                city: "Lancaster",
+                state: "CA",
+                zip: "93534",
+                agent: {
                     id: 1,
-                    roleName: "Member"
+                    name: "John Smith"
                 },
-                email: "john@test.com",
-                lastLogin: "01/02/2015"
-            },
-            {
-                id: 2,
-                firstName: "Mike",
-                lastName: "Jones",
-                role: {
+                status: {
+                    id: 2,
+                    name: "Repair"
+                },
+                type: {
                     id: 1,
-                    roleName: "Member"
-                },
-                email: "mike@test.com",
-                lastLogin: "04/04/2015"
-            },
-            {
-                id: 3,
-                firstName: "James",
-                lastName: "Anderson",
-                role: {
-                    id: 1,
-                    roleName: "Member"
-                },
-                email: "james@test.com",
-                lastLogin: "03/02/2015"
-            }
-        ];
-
-        this.roles = [
-            {
-                id: 1,
-                roleName: "Member"
-            },
-            {
-                id: 2,
-                roleName: "Developer"
-            },
-            {
-                id: 3,
-                roleName: "Administrator"
+                    name: "Custom Sign"
+                }
             }
         ];
 
         /***
-         * Retrives a list of users
-         * @param {string} query - filters the list of users. optional.
-         * @returns {array} array of user objects
+         * Retrives a list of signs
+         * @param {string} query - filters the list of signs. optional.
+         * @returns {array} array of sign objects
          */
-        this.getUsers = function(query) {
-            return this.users;
+        this.getSigns = function(query) {
+            return this.signs;
         },
 
         /***
-         * Retrives a user
-         * @param {number} userID - id of user to be selected.
-         * @returns {object} user object
+         * Retrives a sign
+         * @param {number} signID - id of sign to be selected.
+         * @returns {object} sign object
          */
-        this.getUser = function(userID) {
-            var userIndex = this.getUserIndexByID(userID);
-            return this.users[userIndex];
+        this.getSign = function(signID) {
+            var signIndex = this.getSignIndexByID(signID);
+            return this.signs[signIndex];
         },
 
         /***
-         * Retrieves the index in the list for a given user
-         * @param {number} userID - id of user to be selected.
-         * @returns {number} user list index of user
+         * Retrieves the index in the list for a given sign
+         * @param {number} signID - id of sign to be selected.
+         * @returns {number} sign list index of sign
          */
-        this.getUserIndexByID = function(userID) {
-            for(var i=0; i < this.users.length; i++) {
-                if(this.users[i].id == Number(userID)) {
+        this.getSignIndexByID = function(signID) {
+            for(var i=0; i < this.signs.length; i++) {
+                if(this.signs[i].id == Number(signID)) {
                     return i
                 }
             }
         },
 
         /***
-         * Updates an existing user
-         * @param {user} user - user object to be updated
+         * Updates an existing sign
+         * @param {sign} sign - sign object to be updated
          */
-        this.updateUser = function(user) {
-            var userIndex = this.getUserIndexByID(user.id);
+        this.updateSign = function(sign) {
+            var signIndex = this.getSignIndexByID(sign.id);
 
-            this.users[userIndex] = user;
+            this.signs[signIndex] = sign;
         },
 
         /***
-         * Deletes an existing user
-         * @param {user} user - user object to be removed
+         * Deletes an existing sign
+         * @param {sign} sign - sign object to be removed
          */
-        this.deleteUser = function(user) {
-            var userIndex = this.getUserIndexByID(user.id);
+        this.deleteSign = function(sign) {
+            var signIndex = this.getSignIndexByID(sign.id);
 
-            this.users.splice(userIndex, 1);
+            this.signs.splice(signIndex, 1);
         },
 
         /***
-         * Inserts a new user
-         * @param {user} user - user object to be inserted
+         * Inserts a new sign
+         * @param {sign} sign - sign object to be inserted
          */
-        this.insertUser = function(user) {
-            user.id = this.users[this.users.length-1].id + 1;
-            this.users.push(user);
+        this.insertSign = function(sign) {
+            sign.id = this.signs[this.signs.length-1].id + 1;
+            this.signs.push(sign);
         }
 
     });

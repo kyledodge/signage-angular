@@ -5,6 +5,9 @@ angular.module('app', [
     'app.users',
     'app.users.create',
     'app.users.edit',
+    'app.signs',
+    'app.signs.create',
+    'app.signs.edit',
     'ui.router'
 ])
     .run(["$rootScope", "$state", function($rootScope, $state) {
