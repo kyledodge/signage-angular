@@ -1,6 +1,7 @@
 angular.module('app.signs', [
     'ui.router',
-    'app.signs.model'
+    'app.signs.model',
+    'firebase'
 ])
     .config([
         '$stateProvider',
@@ -10,7 +11,13 @@ angular.module('app.signs', [
             .state('signs', {
                 url: '/signs',
                 templateUrl: 'app/signs/signs.template.html',
-                controller: 'SignsController as signsCtrl'
+                controller: 'SignsController as signsCtrl',
+                resolve: {
+                    "currentAuth": ["AuthFactory",'$firebaseAuth', function(AuthFactory, $firebaseAuth) {
+                        var auth = $firebaseAuth(AuthFactory);
+                        return auth.$requireAuth();
+                    }]
+                }
             })
     }])
 
