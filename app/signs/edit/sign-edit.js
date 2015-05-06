@@ -57,7 +57,7 @@ angular.module('app.signs.edit', [
              * initializes the controller: fetches sign based on route signID
              */
             signEditCtrl.init = function() {
-                signEditCtrl.sign = SignsModel.getSign(Number($stateParams.signID));
+                signEditCtrl.sign = SignsModel.getSign($stateParams.signID);
             }
 
             signEditCtrl.init();
