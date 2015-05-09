@@ -23,7 +23,6 @@ angular.module('app.agents.create', [
              * model to hold new agent information from form
              */
             agentCreateCtrl.newAgentData = {};
-            agentCreateCtrl.agentRoles = AgentsModel.roles;
 
             /***
              * handles new agent form submission
@@ -40,7 +39,7 @@ angular.module('app.agents.create', [
              * inserts a new agent and navigates to agent list
              */
             agentCreateCtrl.insertAgent = function() {
-                agentsModel.insertAgent(agentCreateCtrl.newAgentData);
+                AgentsModel.insertAgent(agentCreateCtrl.newAgentData);
                 $state.go('agents');
             };
 

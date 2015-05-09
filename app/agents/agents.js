@@ -38,17 +38,16 @@ angular.module('app.agents', [
              */
             agentsCtrl.initDatagrid = function() {
                 agentsCtrl.agentGrid = {
+                    showGridFooter: true,
                     data: agentsCtrl.agentList,
                     columnDefs: [
-                        {name: 'id', displayName: 'Agent ID', enableColumnMenu: false},
                         {name: 'firstName', displayName: 'First Name', enableColumnMenu: false},
                         {name: 'lastName', displayName: 'Last Name', enableColumnMenu: false},
                         {name: 'email', displayName: 'Email', enableColumnMenu: false},
-                        {name: 'role.roleName', displayName: 'Agent Role', enableColumnMenu: false},
                         {
                             name: 'Actions',
                             enableColumnMenu: false,
-                            cellTemplate: '<div class="ui-grid-cell-contents"><a ui-sref="agentEdit({agentID: row.entity.id})">' +
+                            cellTemplate: '<div class="ui-grid-cell-contents"><a ui-sref="agentEdit({agentID: row.entity.$id})">' +
                             '<span class="glyphicon glyphicon-edit" aria-hidden="true"></span> ' +
                             'Edit</a></div>'
                         }

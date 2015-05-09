@@ -40,19 +40,6 @@
     </div>
 
     <div class="form-group">
-        <label for="inputagentRole" class="col-sm-4 control-label">agent Role</label>
-        <div class="col-sm-5">
-            <select id="inputagentRole" name="agentRole" class="form-control" ng-model="agentCreateCtrl.newAgentData.role"
-                    ng-options="role.roleName for role in agentCreateCtrl.agentRoles" required>
-            </select>
-        </div>
-        <div ng-messages="agentCreateCtrl.agentForm.agentRole.$error" role="alert" class="has-error"
-             ng-if='agentCreateCtrl.agentForm.agentRole.$dirty || agentCreateCtrl.agentForm.$submitted'>
-            <div ng-message="required" class="col-sm-3 help-block">agent role is required.</div>
-        </div>
-    </div>
-
-    <div class="form-group">
         <div class="col-sm-offset-4 col-sm-5 text-center">
             <button type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-ok"></span>

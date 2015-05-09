@@ -46,6 +46,18 @@
     </div>
 
     <div class="form-group">
+        <label for="inputState" class="col-sm-4 control-label">State</label>
+        <div class="col-sm-5">
+            <input id="inputState" name="state" type="text" class="form-control"
+                   ng-model="signEditCtrl.sign.state" required>
+        </div>
+        <div ng-messages="signEditCtrl.signForm.state.$error" role="alert" class="has-error"
+             ng-if='signEditCtrl.signForm.state.$dirty || signEditCtrl.signForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">State is required.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
         <label for="inputZip" class="col-sm-4 control-label">Zip</label>
         <div class="col-sm-5">
             <input id="inputZip" name="zip" type="text" class="form-control"

@@ -63,7 +63,7 @@ angular.module('app.agents.edit', [
              * initializes the controller: fetches agent based on route agentID
              */
             agentEditCtrl.init = function() {
-                agentEditCtrl.agent = AgentsModel.getAgent(Number($stateParams.agentID));
+                agentEditCtrl.agent = AgentsModel.getAgent($stateParams.agentID);
             }
 
             agentEditCtrl.init();
