@@ -1,11 +1,11 @@
-<h3 class="text-center">Edit User</h3>
+<h3 class="text-center">Edit agent</h3>
 
-<form name="userEditCtrl.userForm" class="form-horizontal" ng-submit="userEditCtrl.submitForm()" novalidate>
+<form name="agentEditCtrl.agentForm" class="form-horizontal" ng-submit="agentEditCtrl.submitForm()" novalidate>
 
     <div class="form-group">
-        <label class="col-sm-4 control-label">User ID</label>
+        <label class="col-sm-4 control-label">agent ID</label>
         <div class="col-sm-5 help-block text-left">
-            {{userEditCtrl.user.id}}
+            {{agentEditCtrl.agent.id}}
         </div>
     </div>
 
@@ -13,10 +13,10 @@
         <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
         <div class="col-sm-5">
             <input id="inputFirstName" name="firstName" type="text" class="form-control"
-                   ng-model="userEditCtrl.user.firstName" required>
+                   ng-model="agentEditCtrl.agent.firstName" required>
         </div>
-        <div ng-messages="userEditCtrl.userForm.firstName.$error" role="alert" class="has-error"
-             ng-if='userEditCtrl.userForm.firstName.$dirty || userEditCtrl.userForm.$submitted'>
+        <div ng-messages="agentEditCtrl.agentForm.firstName.$error" role="alert" class="has-error"
+             ng-if='agentEditCtrl.agentForm.firstName.$dirty || agentEditCtrl.agentForm.$submitted'>
             <div ng-message="required" class="col-sm-3 help-block">First name is required.</div>
         </div>
     </div>
@@ -25,10 +25,10 @@
         <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
         <div class="col-sm-5">
             <input id="inputLastName" name="lastName" type="text" class="form-control"
-                   ng-model="userEditCtrl.user.lastName" required>
+                   ng-model="agentEditCtrl.agent.lastName" required>
         </div>
-        <div ng-messages="userEditCtrl.userForm.lastName.$error" role="alert" class="has-error"
-             ng-if='userEditCtrl.userForm.lastName.$dirty || userEditCtrl.userForm.$submitted'>
+        <div ng-messages="agentEditCtrl.agentForm.lastName.$error" role="alert" class="has-error"
+             ng-if='agentEditCtrl.agentForm.lastName.$dirty || agentEditCtrl.agentForm.$submitted'>
             <div ng-message="required" class="col-sm-3 help-block">Last name is required.</div>
         </div>
     </div>
@@ -37,10 +37,10 @@
         <label for="inputEmail" class="col-sm-4 control-label">Email</label>
         <div class="col-sm-5">
             <input id="inputEmail" name="email" type="email" class="form-control"
-                   ng-model="userEditCtrl.user.email" required>
+                   ng-model="agentEditCtrl.agent.email" required>
         </div>
-        <div ng-messages="userEditCtrl.userForm.email.$error" role="alert" class="has-error"
-             ng-if='userEditCtrl.userForm.email.$dirty || userEditCtrl.userForm.$submitted'>
+        <div ng-messages="agentEditCtrl.agentForm.email.$error" role="alert" class="has-error"
+             ng-if='agentEditCtrl.agentForm.email.$dirty || agentEditCtrl.agentForm.$submitted'>
             <div ng-message="required" class="col-sm-3 help-block">Email is required.</div>
             <div ng-message="email" class="col-sm-3 help-block">Email is invalid.</div>
         </div>
@@ -49,22 +49,22 @@
     <div class="form-group">
         <label class="col-sm-4 control-label">Last Login</label>
         <div class="col-sm-5 help-block text-left">
-            {{userEditCtrl.user.lastLogin}}
+            {{agentEditCtrl.agent.lastLogin}}
         </div>
     </div>
 
     <div class="form-group">
         <div class="col-sm-offset-4 col-sm-5 text-center">
-            <button type="submit" class="btn btn-default pull-left" ng-click="userEditCtrl.cancelUser()">
+            <button type="submit" class="btn btn-default pull-left" ng-click="agentEditCtrl.cancelagent()">
                 Cancel
             </button>
             <button type="submit" class="btn btn-primary">
                 <span class="glyphicon glyphicon-ok"></span>
-                Update User
+                Update agent
             </button>
-            <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#deleteUserModal">
+            <button type="button" class="btn btn-danger pull-right" data-toggle="modal" data-target="#deleteagentModal">
                 <span class="glyphicon glyphicon-remove"></span>
-                Delete User
+                Delete agent
             </button>
         </div>
     </div>
@@ -73,20 +73,20 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModalLabel" aria-hidden="true">
+    <div class="modal fade" id="deleteagentModal" tabindex="-1" role="dialog" aria-labelledby="deleteagentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
-                    <h4 class="modal-title" id="deleteUserModalLabel">Delete User</h4>
+                    <h4 class="modal-title" id="deleteagentModalLabel">Delete agent</h4>
                 </div>
                 <div class="modal-body">
-                    Are you sure you want to delete this user? This action cannot be undone.
+                    Are you sure you want to delete this agent? This action cannot be undone.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="userEditCtrl.deleteUser()">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="agentEditCtrl.deleteagent()">
                         Yes, Delete
                     </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal">
@@ -98,20 +98,20 @@
     </div>
 
     <!---
-        <div class="modal fade" id="deleteUserModal" tabindex="-1" role="dialog" aria-labelledby="deleteUserModal" aria-hidden="true">
+        <div class="modal fade" id="deleteagentModal" tabindex="-1" role="dialog" aria-labelledby="deleteagentModal" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h4 class="modal-title" id="myModalLabel">Delete User</h4>
+                        <h4 class="modal-title" id="myModalLabel">Delete agent</h4>
                     </div>
                     <div class="modal-body">
-                        Are you sure you want to delete this user? This action cannot be undone.
+                        Are you sure you want to delete this agent? This action cannot be undone.
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" ng-click="userEditCtrl.deleteUser()">
+                        <button type="button" class="btn btn-primary" ng-click="agentEditCtrl.deleteagent()">
                             Yes, Delete
                         </button>
                         <button type="button" class="btn btn-default" data-dismiss="modal">

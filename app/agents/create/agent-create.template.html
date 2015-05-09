@@ -1,0 +1,67 @@
+<h3 class="text-center">Create New Agent</h3>
+
+<form name="agentCreateCtrl.agentForm" class="form-horizontal" ng-submit="agentCreateCtrl.submitForm()" novalidate>
+
+    <div class="form-group">
+        <label for="inputFirstName" class="col-sm-4 control-label">First Name</label>
+        <div class="col-sm-5">
+            <input id="inputFirstName" name="firstName" type="text" class="form-control"
+                   ng-model="agentCreateCtrl.newAgentData.firstName" required>
+        </div>
+        <div ng-messages="agentCreateCtrl.agentForm.firstName.$error" role="alert" class="has-error"
+             ng-if='agentCreateCtrl.agentForm.firstName.$dirty || agentCreateCtrl.agentForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">First name is required.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputLastName" class="col-sm-4 control-label">Last Name</label>
+        <div class="col-sm-5">
+            <input id="inputLastName" name="lastName" type="text" class="form-control"
+                   ng-model="agentCreateCtrl.newAgentData.lastName" required>
+        </div>
+        <div ng-messages="agentCreateCtrl.agentForm.lastName.$error" role="alert" class="has-error"
+             ng-if='agentCreateCtrl.agentForm.lastName.$dirty || agentCreateCtrl.agentForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">Last name is required.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputEmail" class="col-sm-4 control-label">Email</label>
+        <div class="col-sm-5">
+            <input id="inputEmail" name="email" type="email" class="form-control"
+                   ng-model="agentCreateCtrl.newAgentData.email" required>
+        </div>
+        <div ng-messages="agentCreateCtrl.agentForm.email.$error" role="alert" class="has-error"
+             ng-if='agentCreateCtrl.agentForm.email.$dirty || agentCreateCtrl.agentForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">Email is required.</div>
+            <div ng-message="email" class="col-sm-3 help-block">Email is invalid.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="inputagentRole" class="col-sm-4 control-label">agent Role</label>
+        <div class="col-sm-5">
+            <select id="inputagentRole" name="agentRole" class="form-control" ng-model="agentCreateCtrl.newAgentData.role"
+                    ng-options="role.roleName for role in agentCreateCtrl.agentRoles" required>
+            </select>
+        </div>
+        <div ng-messages="agentCreateCtrl.agentForm.agentRole.$error" role="alert" class="has-error"
+             ng-if='agentCreateCtrl.agentForm.agentRole.$dirty || agentCreateCtrl.agentForm.$submitted'>
+            <div ng-message="required" class="col-sm-3 help-block">agent role is required.</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-sm-offset-4 col-sm-5 text-center">
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-ok"></span>
+                Create agent
+            </button>
+            <button type="submit" class="btn btn-default" ng-click="agentCreateCtrl.cancelagent()">
+                Cancel
+            </button>
+        </div>
+    </div>
+
+</form>
