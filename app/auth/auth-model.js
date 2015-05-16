@@ -1,11 +1,8 @@
 angular.module('app.auth.model', [
 ])
     .service("AuthModel", function() {
+        var authModel = this;
 
-
-        this.messages = {
-            "invalidLogin": "The username and/or password was not recognized. Please try again."
-        }
-
-
+        authModel.isLoggedIn = false;
+        authModel.userInfo = {};
     });

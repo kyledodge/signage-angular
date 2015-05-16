@@ -43,6 +43,7 @@ angular.module('app.signs', [
                         {name: 'id', displayName: 'Sign Number', enableColumnMenu: false},
                         {name: 'address', displayName: 'Address', enableColumnMenu: false},
                         {name: 'city', displayName: 'City', enableColumnMenu: false},
+                        {name: 'state', displayName: 'State', enableColumnMenu: false},
                         {name: 'zip', displayName: 'Zip', enableColumnMenu: false},
                         {
                             name: 'Actions',

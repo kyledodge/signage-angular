@@ -3,6 +3,8 @@
     <form class="form-signin" name="authCtrl.loginForm" ng-submit="authCtrl.loginFormSubmit()">
         <h2 class="form-signin-heading text-center">Please Login</h2>
 
+        <div class="alert alert-danger form-signin-message" ng-show="authCtrl.message">{{authCtrl.message}}</div>
+
         <label for="inputEmail" class="sr-only">Email address</label>
         <input name="email" type="email" id="inputEmail" class="form-control"
                ng-model="authCtrl.loginForm.email.value" placeholder="Email address" required autofocus>
@@ -11,13 +13,10 @@
         <input name="password" type="password" id="inputPassword" class="form-control"
                ng-model="authCtrl.loginForm.password.value" placeholder="Password" required>
 
-        <button class="btn btn-lg btn-primary btn-block" type="submit">
-            Sign in
+        <button class="btn btn-lg btn-primary btn-block" type="submit" ng-disabled="authCtrl.loggingIn">
+            <span ng-show="!authCtrl.loggingIn">Sign in</span>
+            <span ng-show="authCtrl.loggingIn"><i class="fa fa-spinner fa-pulse"></i> Logging in</span>
         </button>
-
-        <div class="form-signin-forgotpw text-right">
-            <a href="#">Forgot password?</a>
-        </div>
     </form>
 
 </div>
